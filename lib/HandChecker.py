@@ -1,3 +1,6 @@
+from collections import Counter
+
+
 class HandChecker:
     def __init__(self, hand):
         self.hand = hand
@@ -26,3 +29,10 @@ class HandChecker:
             curr_val = card_map[i]
         return True
 
+    def _check_four(self):
+        card_map = self._sort_cards()
+        count = Counter(card_map)
+        for _, value in count.items():
+            if value == 4:
+                return True
+        return False
