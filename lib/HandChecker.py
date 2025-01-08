@@ -36,3 +36,32 @@ class HandChecker:
             if value == 4:
                 return True
         return False
+
+    def _check_three(self):
+        card_map = self._sort_cards()
+        count = Counter(card_map)
+        for _, value in count.items():
+            if value == 3:
+                return True
+        return False
+
+    def _check_fullhouse(self):
+        card_map = self._sort_cards()
+        count = Counter(card_map)
+        
+        return 2 in count.values() and 3 in count.values()
+
+    def _check_twopair(self):
+        card_map = self._sort_cards()
+        count = Counter(card_map)
+        val_count = Counter(count.values())
+        return 2 in val_count.keys() and val_count[2] == 2
+
+    def _check_jacksorbetter(self):
+        card_map = self._sort_cards()
+        count = Counter(card_map)
+        for key, value in count.items():
+            if key > 10 and value == 2:
+                return True
+        return False
+
