@@ -13,6 +13,27 @@ class HandChecker:
         card_map.sort()
         return card_map
 
+    def check_hand(self):
+        isFlush = self._check_flush()
+        isStraight = self._check_straight()
+        if isFlush and isStraight:
+            return 9
+        if self._check_four():
+            return 8
+        if self._check_fullhouse():
+            return 7
+        if isFlush:
+            return 6
+        if isStraight:
+            return 5
+        if self._check_three():
+            return 4
+        if self._check_twopair():
+            return 3
+        if self._check_jacksorbetter():
+            return 2
+        return 1
+
     def _check_flush(self):
         suit = self.hand[0].suit
         for card in self.hand:
@@ -28,6 +49,7 @@ class HandChecker:
                 return False
             curr_val = card_map[i]
         return True
+
 
     def _check_four(self):
         card_map = self._sort_cards()
