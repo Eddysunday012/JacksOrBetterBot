@@ -5,6 +5,25 @@ class HandChecker:
     def __init__(self, hand):
         self.hand = hand
 
+    def __str__(self):
+        if self.check_hand() == 9:
+            return "Straight Flush"
+        if self.check_hand() == 8:
+            return "Fours"
+        if self.check_hand() == 7:
+            return "Full House"
+        if self.check_hand() == 6:
+            return "Flush"
+        if self.check_hand() == 5:
+            return "Straight"
+        if self.check_hand() == 4:
+            return "Three"
+        if self.check_hand() == 3:
+            return "Two Pair"
+        if self.check_hand() == 2:
+            return "Jacks or Better"
+        return "High Card"
+
     def _sort_cards(self):
         suit_map = {"1": 1,"2": 2,"3": 3,"4": 4,"5": 5,"6": 6,"7": 7,"8": 8,"9": 9,"10": 10, "J": 11, "Q": 12, "K": 13, "A": 14}
         card_map = []

@@ -11,8 +11,8 @@ class Deck:
     def shuffle(self):
         random.shuffle(self.cards)
 
-    def deal_hand(self):
-        return [self.cards.popleft() for _ in range(5)]
+    def deal_hand(self, hand_size=5):
+        return [self.cards.popleft() for _ in range(hand_size)]
 
     def reshuffle_deck(self, Cards):
         for card in Cards:
