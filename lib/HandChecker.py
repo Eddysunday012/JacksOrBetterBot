@@ -1,9 +1,9 @@
 from collections import Counter
 
-
 class HandChecker:
     def __init__(self, hand):
         self.hand = hand
+        self.pokerHands = ["Straight Flush", "Fours", "Full House", "Flush", "Straight", "Three", "Two Pair", "Jacks or Better", "High Card"]
 
     def __str__(self):
         if self.check_hand() == 9:
